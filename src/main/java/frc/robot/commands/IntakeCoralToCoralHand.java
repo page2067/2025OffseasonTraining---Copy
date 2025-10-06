@@ -15,7 +15,6 @@ public class IntakeCoralToCoralHand extends Command {
     private final CoralHand m_coralHand;
     private final DigitalInput m_coralSensor;
   
-
     public IntakeCoralToCoralHand(Inlet inlet, CoralHand coralHand, DigitalInput coralSensor) {
         m_inlet = inlet;
         m_coralHand = coralHand;
@@ -26,8 +25,8 @@ public class IntakeCoralToCoralHand extends Command {
     @Override
     public void execute() {
         if (m_coralSensor.get()) { // If CoralSensor is false
-            m_inlet.runInlet(-60.0);
-            m_coralHand.runCoralHand(60.0);
+            m_inlet.runInlet(-40.0);
+            m_coralHand.runCoralHand(40.0);
         } else {
             m_inlet.stopMotor();
             m_coralHand.stopMotor();

@@ -29,7 +29,7 @@ public class CoralShoulder extends SubsystemBase {
     }
 
     public void setCoralShoulder(double angleDegrees) {
-        double motorRotations = (angleDegrees / 360.0) * CoralShoulderConstants.kGearRatio;
+        double motorRotations = (angleDegrees / 360.0) / CoralShoulderConstants.kGearRatio;
         m_coralShoulderMotor.setControl(m_motionMagicRequest.withPosition(motorRotations));
     }
 
@@ -40,6 +40,11 @@ public class CoralShoulder extends SubsystemBase {
     @Override
     public void periodic() {
         // This method will be called once per scheduler run
+    }
+
+    public static CoralShoulder getInstance() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getInstance'");
     }
 }
 

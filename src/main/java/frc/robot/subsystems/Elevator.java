@@ -25,6 +25,7 @@ public class Elevator extends SubsystemBase {
         slot0Configs.kP = ElevatorConstants.kElevatorkP;
         slot0Configs.kI = ElevatorConstants.kElevatorkI;
         slot0Configs.kD = ElevatorConstants.kElevatorkD;
+        slot0Configs.kV = ElevatorConstants.kElevatorkV;
         m_elevatorMotor.getConfigurator().apply(slot0Configs);
     }
 

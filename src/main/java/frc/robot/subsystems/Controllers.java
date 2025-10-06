@@ -1,3 +1,4 @@
+/*
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -60,7 +61,7 @@ private final CommandXboxController m_operatorController;
        // If DIO 1 is false AND Button A is pressed, run Inlet and CoralHand motors
        m_operatorController.a()
        //.whileTrue(new RunInletCoralHand(m_inlet, m_coralHand, m_coralSensor));         
-       .whileTrue(new RunCoralHand(m_coralHand, m_coralSensor, -60.0).alongWith(new RunInlet(m_inlet,m_coralSensor,-60.0))); 
+       .whileTrue(new RunCoralHand(m_coralHand, -60.0).alongWith(new RunInlet(m_inlet,-60.0))); 
        m_operatorController.b()
        .whileTrue(new IntakeCoralToCoralHand(m_inlet, m_coralHand, m_coralSensor));
 
@@ -75,7 +76,7 @@ private final CommandXboxController m_operatorController;
         
         // If B is pressed, run L1 Score: Set coralshoulder, wait then run coralhand.
         m_operatorController.povDown()
-        .toggleOnTrue(new SetCoralShoulder(m_coralShoulder,-15.0).alongWith(new WaitCommand(0.3).andThen(new RunCoralHand(m_coralHand, m_coralSensor, 400.0))));
+        .toggleOnTrue(new SetCoralShoulder(m_coralShoulder,-15.0).alongWith(new WaitCommand(0.3).andThen(new RunCoralHand(m_coralHand,400.0))));
        
         // If x is pressed, run DutyCycle
         m_operatorController.x()
@@ -190,3 +191,4 @@ private final CommandXboxController m_operatorController;
 //   @Override
 //   public void periodic() {} 
 // }
+*/
