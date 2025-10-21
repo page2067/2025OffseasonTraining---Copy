@@ -10,9 +10,7 @@ public class SetCoralShoulder extends Command {
 
     private final CoralShoulder m_coralShoulder;
     private final double m_targetDegrees;
-
-    
- 
+  
     // public SetCoralShoulder(CoralShoulder coralShoulder) {
     public SetCoralShoulder(CoralShoulder coralShoulder, double targetDegrees) {
         m_coralShoulder = coralShoulder;

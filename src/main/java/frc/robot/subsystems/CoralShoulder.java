@@ -11,7 +11,7 @@ import frc.robot.Constants.CoralShoulderConstants;
 public class CoralShoulder extends SubsystemBase {
 
     private final TalonFX m_coralShoulderMotor = new TalonFX(CoralShoulderConstants.kCoralShoulderCanID);
-    private final MotionMagicVoltage m_motionMagicRequest = new MotionMagicVoltage(0).withSlot(0);
+    // private final MotionMagicVoltage m_motionMagicRequest = new MotionMagicVoltage(0).withSlot(0);
 
     public CoralShoulder() {
         // Configure Motion Magic settings
@@ -25,26 +25,32 @@ public class CoralShoulder extends SubsystemBase {
         slot0Configs.kP = CoralShoulderConstants.kCoralShoulderkP;
         slot0Configs.kI = CoralShoulderConstants.kCoralShoulderkI;
         slot0Configs.kD = CoralShoulderConstants.kCoralShoulderkD;
+        slot0Configs.kV = CoralShoulderConstants.kCoralShoulderkV;
         m_coralShoulderMotor.getConfigurator().apply(slot0Configs);
     }
 
     public void setCoralShoulder(double angleDegrees) {
-        double motorRotations = (angleDegrees / 360.0) / CoralShoulderConstants.kGearRatio;
-        m_coralShoulderMotor.setControl(m_motionMagicRequest.withPosition(motorRotations));
+        double motorRotations = (angleDegrees / 360.0) * CoralShoulderConstants.kGearRatio;
+        //  10-17try  m_coralShoulderMotor.setControl(m_motionMagicRequest.withPosition(motorRotations));
+        MotionMagicVoltage request = new MotionMagicVoltage(motorRotations);
+            // .withFeedForward(getFeedForwardVoltage(angleDegrees));
+        m_coralShoulderMotor.setControl(request);
     }
 
     public void stopMotor() {
         m_coralShoulderMotor.stopMotor();
     }
 
-    @Override
-    public void periodic() {
-        // This method will be called once per scheduler run
-    }
+    // @Override
+    // public void periodic() {
+    //     // This method will be called once per scheduler run
+    // }
 
-    public static CoralShoulder getInstance() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getInstance'");
-    }
+    //  public static CoralShoulder getInstance() {
+    //      // TODO Auto-generated method stub
+    //      throw new UnsupportedOperationException("Unimplemented method 'getInstance'");// }
+    // }
+
 }
 
+// 

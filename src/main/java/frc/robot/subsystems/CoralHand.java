@@ -15,8 +15,8 @@ public class CoralHand extends SubsystemBase {
     private final VelocityVoltage m_velocityRequest = new VelocityVoltage(0).withSlot(0);
 
     private static final CurrentLimitsConfigs CURRENT_LIMITS_CONFIGS = new CurrentLimitsConfigs()
-        .withSupplyCurrentLimit(40)
-        .withStatorCurrentLimit(60);
+        .withSupplyCurrentLimit(40.0)
+        .withStatorCurrentLimit(60.0);
 
     public CoralHand() {
         Slot0Configs slot0Configs = new Slot0Configs();
@@ -36,13 +36,13 @@ public class CoralHand extends SubsystemBase {
         m_coralHandMotor.stopMotor();
     }
 
-    @Override
-    public void periodic() {
-        // This method will be called once per scheduler run
-    }
+    // @Override
+    // public void periodic() {
+    //     // This method will be called once per scheduler run
+    // }
 
-    public static CoralHand getInstance() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getInstance'");
-    }
+    // public static CoralHand getInstance() {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'getInstance'");
+    // }
 }

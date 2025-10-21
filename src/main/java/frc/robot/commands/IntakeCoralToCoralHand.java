@@ -4,8 +4,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.Command;
-// import frc.robot.Constants.InletConstants;
-// import frc.robot.Constants.CoralHandConstants;
 import frc.robot.subsystems.Inlet;
 import frc.robot.subsystems.CoralHand;
 
@@ -24,7 +22,7 @@ public class IntakeCoralToCoralHand extends Command {
 
     @Override
     public void execute() {
-        if (m_coralSensor.get()) { // If CoralSensor is false
+        if (m_coralSensor.get()) { // If CoralSensor is true
             m_inlet.runInlet(-40.0);
             m_coralHand.runCoralHand(40.0);
         } else {

@@ -19,8 +19,7 @@ public class RunCoralHand extends Command {
     @Override
     public void execute() {
             m_coralHand.runCoralHand(m_coralHandTargetRPM);
-            m_coralHand.stopMotor();
-        }
+    }
     
     @Override
     public void end(boolean interrupted) {

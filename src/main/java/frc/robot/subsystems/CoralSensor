@@ -1,0 +1,21 @@
+package frc.robot.subsystems;
+
+import edu.wpi.first.wpilibj.DigitalInput;
+// import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+public class CoralSensor extends SubsystemBase {
+    private final DigitalInput digitalInput;
+
+    public CoralSensor() {
+        digitalInput = new DigitalInput(1); // DIO1
+    }
+
+    public boolean isSensorTriggered() {
+        return digitalInput.get();
+    }
+
+    @Override
+    public void periodic() {
+        // This method will be called once per scheduler run
+    }
+}

@@ -5,6 +5,8 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.configs.MotionMagicConfigs;
 import com.ctre.phoenix6.configs.Slot0Configs;
 import com.ctre.phoenix6.controls.MotionMagicVoltage;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ElevatorConstants;
 
@@ -33,7 +35,12 @@ public class Elevator extends SubsystemBase {
         double motorRevolutions = distanceInches / ElevatorConstants.kElevatorDistancePerMotorRevolution;
         m_elevatorMotor.setControl(m_motionMagicRequest.withPosition(motorRevolutions));
     }
-
+    //@Log(name = "position (in)")
+    public double getPositionInches() {
+        double rotations = m_elevatorMotor.getPosition().getValueAsDouble();
+        //return Conversions.rotationsToArcLength(rotations, OUTPUT_SPROCKET_PITCH_RADIUS_INCHES);
+                return rotations;
+    }
     public void stopMotor() {
         m_elevatorMotor.stopMotor();
     }
@@ -41,5 +48,8 @@ public class Elevator extends SubsystemBase {
     @Override
     public void periodic() {
         // This method will be called once per scheduler run
+      
+        SmartDashboard.putNumber("Elevator position (in)", getPositionInches());
+       
     }
 }

@@ -12,7 +12,6 @@ public class RunInlet extends Command {
 
     public RunInlet(Inlet inlet, double inletTargetRPM) {
         m_inlet = inlet;
-        //m_coralSensor = coralSensor;
         m_inletTargetRPM = inletTargetRPM;
         addRequirements(m_inlet);
     }
